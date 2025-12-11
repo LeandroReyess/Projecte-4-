@@ -178,7 +178,9 @@ En el moment en que ens demana el passphrase podem escollir el que nosaltres vol
 Podem veure que la copia s'ha creat correctament en el disc secundari, això amb la comanda ls
 
 ![Image29](Image29.png)
+
 Un cop fet això el seguent pas sera esborrar els arxius i comprobar que funcionen correctament
+
 ![Image30](Image30.png)
 
 Un cop que ja no estan els arxius farem servir la copia per recuperar-los, en aquest cas guardarem la copia dins d'una carpeta que es diu copia dins de la carpeta /home/user això ho farem amb la seguent comanda:
