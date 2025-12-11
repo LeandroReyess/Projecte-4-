@@ -230,3 +230,35 @@ Un cop fet això si fem login l'usuari dev01 com que tenim una ip dins del rang 
 Mentre que canviem la ip i coloquem per exemple 192.168.56.102 podrem observar que no podem editar els arxius però si que podem veure que hi ha a la carpeta, haurem de tornar a desmuntar i muntar el disc
 
 ![Image19](Image19.png)
+
+Podrem veure que podem accedir a la carpeta i veure que hi ha dins però no podrem modificar el contigut ja que nomes tenim permisos de lectura
+
+![Image20](Image20.png)
+
+Ara per ultim farem login amb l'usuari admin01 i intentarem crear un arxiu en la carpeta dev_projects
+
+![Image21](Image21.png)
+
+Podem veure que no podem crear cap arxius dins de la carpeta dev_projects ja que no tenim els permisos neccesaris ja que l'usuari admin01 no forma part del grup dev01
+
+Fase 5: Muntatge Automàtic amb /etc/fstab
+Ara per ultim modificarem l'arxiu /etc/fstab per poder configurar que els recursos compartits no es tinguin que muntar cada vegada que entrem
+
+Per començar farem la seguent comanda per entrar al arxiu
+
+sudo nano /etc/fstab
+En el qual haurem d'afegir aquestes dues lines al final
+
+192.168.56.101:/srv/nfs/admin_tools /mnt/admin_tools nfs defaults 0 0
+192.168.56.101:/srv/nfs/dev_projects /mnt/dev_projects nfs defaults 0 0
+
+![Image22](Image22.png)
+
+Un cop fet això reiniciem la maquina i confirmem que discos s'han muntat correctament
+
+![Image23](Image23.png)
+
+Conclusió
+Per millorar aquest producte, hi ha alguns punts que es podrien ajustar. Un dels principals problemes és que cal crear els usuaris i els grups tant al servidor com a cada màquina client. Això no és gaire pràctic, sobretot en un entorn real on el client podria tenir més de 20 ordinadors. En aquest cas, hauríem de repetir el mateix procés 21 vegades (20 pels clients i 1 pel servidor), cosa que fa perdre molt de temps.
+
+Una solució més eficient seria centralitzar tota la informació d’inici de sessió en un sol lloc, per exemple utilitzant LDAP. Així s’evitaria haver de fer la mateixa feina una i altra vegada i tot quedaria més organitzat.
