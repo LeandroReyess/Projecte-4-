@@ -258,7 +258,8 @@ Un cop fet això reiniciem la maquina i confirmem que discos s'han muntat correc
 
 ![Image23](Image23.png)
 
-Conclusió
+### **Conclusió**
+
 Per millorar aquest producte, hi ha alguns punts que es podrien ajustar. Un dels principals problemes és que cal crear els usuaris i els grups tant al servidor com a cada màquina client. Això no és gaire pràctic, sobretot en un entorn real on el client podria tenir més de 20 ordinadors. En aquest cas, hauríem de repetir el mateix procés 21 vegades (20 pels clients i 1 pel servidor), cosa que fa perdre molt de temps.
 
 Una solució més eficient seria centralitzar tota la informació d’inici de sessió en un sol lloc, per exemple utilitzant LDAP. Així s’evitaria haver de fer la mateixa feina una i altra vegada i tot quedaria més organitzat.
