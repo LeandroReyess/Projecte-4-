@@ -207,6 +207,26 @@ Per poder fer això haurem de modificar l'arxiu /etc/exports i substituir la lin
 /srv/nfs/dev\_projects 192.168.56.0/24(rw,sync,no\_subtree\_check)
 
 /srv/nfs/dev\_projects 192.168.56.100/24(ro,sync,no\_subtree\_check)
+![Image16](Image16.png)
 
 Això ho fem per poder assignar permisos depened de la ip que tingui l'usuari
 
+Tot seguit reinciem el servei amb la comanda
+
+systemctl restart nfs-kernel-server
+Un cop fet això haurem de muntar el disc dev_projects per comprobar que tot funciona correctament.
+
+El primer pas sera crear la carpeta amb la seguent comanda
+
+mkdir /mnt/dev_projects
+El seguent pas que farem sera modificar la nostre ip, en aquest cas probarem amb la ip 192.168.56.103 per poder fer això anirem a la configuració de xarxa i colocarem la ip manualment i muntarem el disc
+
+![Image17](Image17.png)
+
+Un cop fet això si fem login l'usuari dev01 com que tenim una ip dins del rang que pot editar dins de la carpeta si que podrem crear arxius
+
+![Image18](Image18.png)
+
+Mentre que canviem la ip i coloquem per exemple 192.168.56.102 podrem observar que no podem editar els arxius però si que podem veure que hi ha a la carpeta, haurem de tornar a desmuntar i muntar el disc
+
+![Image19](Image19.png)
