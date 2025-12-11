@@ -41,7 +41,7 @@ Per comprovar que s’han creat correctament, utilitzarem `grep` per buscar-los 
 
 Amb això podrem verificar que els grups s’han generat amb èxit.
 
-![image1](image1.png)
+![Image1](Image1.png)
 
 Un cop que ja tenim els grups creats el seguent pas sera crear l'usuari dev01 que formi part del grup devs, per fer això farem servir la seguent comanda
 
@@ -57,7 +57,7 @@ grep dev01 /etc/passwd
 
 grep admin01 /etc/passwd
 
-![image2](image2.png)
+![Image2](Image2.png)
 
 Un cop que ja hem creat els grups i els usuaris, el seguent pas sera crear el directori per als projectes de desenvolupament en la qual la ruta que ens demana és la seguent /srv/nfs/dev\_projects, per crear les totes les carpetas d'una sola comanda farem el seguent:
 
@@ -67,7 +67,7 @@ Un cop fet això crearem el directori per a les eines d'administració en la qua
 
 mkdir /srv/nfs/admin\_tools
 
-![image3](image3.png)
+![Image3](Image3.png)
 
 Per ultim configurarem els permisos de les carpetas, en aquest cas seran els seguent.
 
@@ -85,17 +85,17 @@ chmod 770 /srv/nfs/admin\_tools
 
 Per comprobar que els permisos estan correctas farem ls \-l per poder veure els permisos de cada carpeta
 
-![image4](image4.png)
+![Image4](Image4.png)
 
 Avans de continuar amb el servidor crearem els grups i usuaris dins de la maquina client, en aquest cas una maquina zorin.
 
 Per poder crear els grups i usuaris farem servir la aplicació "users and groups"
 
-![image5](image5.png)
+![Image5](Image5.png)
 
 Per comporbar que tots els grups s'han creat correctament farem servir el grep tal i com hem fet avans  
-![image6](image6.png)
-![image7](image7.png)
+![Image6](Image6.png)
+![Image7](Image7.png)
 
 Hem de comprobar que els numeros UID i GID (els números d'identificació) coincideixin a les dues màquines.
 
@@ -108,7 +108,7 @@ Per comprobar que s'ha instalat correctament podem fer un systemctl status
 systemctl status nfs-kernel-server
 
 
-![image8](image8.png)
+![Image8](Image8.png)
 
 Per començar editarem l'arxiu /etc/exports per poder decidir quins arxius volem exportar, en aquest cas volem exporta tota la carpeta /srv/nfs
 
@@ -116,7 +116,7 @@ Afegirem una linia adicional al final del arxiu, en aquest cas sera la seguent
 
 /srv/nfs \*(rw,sync,no\_subtree\_check)
 
-![image9](image9.png)
+![Image9](Image9.png)
 
 Per poder aplicar el canvis haurem de reinciar el servei amb la comanda
 
@@ -130,13 +130,13 @@ exportfs \-u
 
 Amb la qual podrem veure quins arxius es poden exportar
 
-![image10](image10.png)
+![Image10](Image10.png)
 
 Tambe podem fer la seguent comanda per veure des-de quin port treballa, en aquest cas ho fa amb el port 2049
 
 rpcinfo \-p 192.168.56.101
 
-![image11](image11.png)
+![Image11](Image11.png)
 
 Per poder comprobar en la maquina haurem d'instalar el paquet nfs-common, això ho farem amb la seguent comanda
 
@@ -148,7 +148,7 @@ En el meu cas sera la seguent comanda
 
 showmount \-e 192.168.56.101
 
-![image12](image12.png)
+![Image12](Image12.png)
 
 # **Fase 3: L'Exportació d'Administració (El Dilema del root\_squash)**
 
@@ -158,7 +158,7 @@ Previament ja hem exportat l'arxiu /srv/nfs per tant el seguent pas que hem de f
 
 mkdir /mnt/admin\_tools
 
-![image13](image13.png)
+![Image13](Image13.png)
 
 Podrem veure no podem crear cap arxiu ja que no tenim els pemisos ja que el root de la maquina client i el root del servidor no es el mateix
 
@@ -166,7 +166,7 @@ Mentre que si intentem crear un arxiu amb l'usuari admin si que podrem, ja que a
 
 Podem veure que l'arxiu que hem creat es propietat de admin01
 
-![image14](image14.png)
+![Image14](Image14.png)
 
 A continuació ensenyare com fer per poder crear arxius amb root
 
@@ -192,7 +192,7 @@ mount \-t nfs 192.168.56.101:/srv/nfs/admin\_tools /mnt/admin\_tools
 
 Un cop fet això podrem crear un now arxiu, per exemple en aquest cas he creat una arxiu anomenat file2
 
-![image15](image15.png)
+![Image15](Image15.png)
 
 Això a causa de que hem modificat l'arxiu /etc/exports fent que el root de la maquina fisica sigui el mateix que el root del servidor, per tant tenim total llibertat
 
