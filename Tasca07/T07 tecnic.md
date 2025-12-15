@@ -27,15 +27,15 @@ Per començar hem d'instal·lar AnyDesk, i per això:
 
 En primer lloc, el tècnic ha d’instal·lar AnyDesk al seu ordinador. Per fer-ho, obre el navegador web i accedeix a la pàgina oficial d’AnyDesk. Un cop dins, fa clic al botó de descàrrega i, quan l’arxiu s’ha descarregat, l’executa fent doble clic. A continuació, selecciona l’opció d’instal·lar AnyDesk al dispositiu i accepta les condicions d’ús. Després d’uns segons, el programa queda correctament instal·lat i llest per utilitzar-se.
 
-![image1](image1.png)
+![Image1](Image1.png)
 
 Per començar una sessió de suport, el tècnic demana al client el seu ID d’AnyDesk. Aquest identificador s’introdueix al camp anomenat “Remote Desk”. Tot seguit, el tècnic fa clic al botó de connectar i espera que el client accepti la sol·licitud. Un cop acceptada, s’estableix la connexió i el tècnic pot veure i controlar l’ordinador del client.
 
 
-![image2](image2.png)
+![Image2](Image2.png)
 
 Una vegada fet aixó, el client haurá d’acceptar la invitació que hem enviat mediant el codi que ens ha donat, i ens connectara a la seva sessió on podrem fer el que vulguem.  
-![image3](image3.png)
+![Image3](Image3.png)
 
 I com podem veure, ja estem dins de la sessió.
-![image4](image4.png)
+![Image4](Image4.png)
